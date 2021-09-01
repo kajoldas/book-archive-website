@@ -2,36 +2,69 @@
 const searchBook = () => {
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value ;
-  console.log(searchText);
+//   console.log(searchText);
     
 
 searchField.value = '';
 const url = ` http://openlibrary.org/search.json?q=${searchText}`;
-console.log(url);
+// console.log(url);
 fetch(url)
 .then(res => res.json())
-.then(data => console.log(data ))
+.then(data => displaySearchResult(data.docs));
 }
 
 
-// const displaySearchResult = meals =>{
-//   // console.log(meals);
-//   const searchResult = document.getElementById('search-result');
-//   meals.forEach(meal => {
-//     console.log(meal);
-//     const div = document.createElement('div');
-//     div.classList.add('col');
-//     div.innerHTML = `
-//     <div onClick= "loadMealDetai(${meal.idMeal})" class="card h-100">
-//     <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-//     <div class="card-body">
-//       <h5 class="card-title">${meal.strMeal}</h5>
-//       <p class="card-text">${meal.strInstructions.slice(0,250)}</p>
-//     </div>
-//   </div>
-//     `;
-//     searchResult.appendChild(div);
-//   })
-// }
-// const loadMealDetail = mealId => {
-//   console.log(mealId);
+const displaySearchResult = books => {
+    const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
+    if(books.length == 0 ){
+        //show error (if no result found)
+    }
+
+    books.forEach(docs => {
+        // console.log(docs);
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML =`
+        <div onclick="loadBookDetail(${docs.title})" class="card h-100">
+             <img src="https://covers.openlibrary.org/b/id/${docs.cover_i}-M.jpg" class="card-img-top" alt="No Image found for this Book">
+            <div class="card-body">
+              <h5 class="card-title">${docs.title}</h5>
+              <p class="card-text"> Author Name: ${docs.author_name}</p>
+              <p class="card-text">First Publish Year: ${docs.first_publish_year}</p>
+              
+            </div>
+          </div>
+        `;
+        searchResult.appendChild(div);
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
