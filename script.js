@@ -54,37 +54,3 @@ const displaySearchResult = books => {
 }
 
 
-// const loadBookDetail = bookId => {
-//     console.log(bookId);
-//     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${bookId}`;
-//     fetch(url)
-//     .then(res => res.json())
-//     .then(data => displayBookDetail(data.docs[0]))
-// }
-
-// const div = document.createElement('div');
-        // div.classList.add('col');
-        // div.innerHTML =`
-        //     <div class="card-body">
-            
-        //       <p class="card-text">No Book Found</p>
-        //     </div>
-        // `;
-        // searchResult.appendChild(div);
-
-// const displayBookDetail = meal => {
-//     console.log(meal);
-//     const BookDetails = document.getElementById('book-details');
-//     const div = document.createElement('div');
-//     div.classList.add('card');
-//     div.innerHTML = `
-//     <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
-//             <div class="card-body">
-//               <h5 class="card-title">${meal.strMeal}}</h5>
-//               <p class="card-text">${meal.strInstructions.slice(0,100)}</p>
-//               <a href="${meal.strYoutube}" class="btn btn-primary">Go somewhere</a>
-//             </div>
-
-//     `;
-//     BookDetails.appendChild(div);
-// }
