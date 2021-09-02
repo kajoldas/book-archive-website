@@ -6,7 +6,9 @@ const searchBook = () =>{
     searchField.value = '';
     if(searchText === ''){
         // console.log('no book found');
-        alert('Enter Any Text to Search');
+        // alert('Enter Any Text to Search');
+        document.getElementById('data-found').innerText = `Enter Any Text to Search`;
+
     }
     else{
          //--------------load Data----------------
@@ -27,15 +29,15 @@ const displaySearchResult = books => {
     
     if(books.length === 0 ){
         //show error (if no result found)
-        alert('No book Found');
+        // alert('No book Found');
+        document.getElementById('data-found').innerText = `No Books Found`;
     }
     else{
+             //Show Books Founded
         document.getElementById('data-found').innerText = `${books.length} Books Found`;
     books.forEach(docs => {
         // console.log(docs);
-        //Show Books Founded
-        console.log(docs.num_found)
-        const div = document.createElement('div');
+           const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML =`
         <div onclick="loadBookDetail(${docs.title})" class="card h-100">
@@ -52,5 +54,3 @@ const displaySearchResult = books => {
     });
 }
 }
-
-
